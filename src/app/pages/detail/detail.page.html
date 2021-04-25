@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-button slot="start">
+        <ion-icon name="reorder-three-outline"></ion-icon>
+      </ion-button>
+      <ion-title slot="center">Detalle Pokemon</ion-title>
+    </div>
+      <h4 style="display: flex;justify-content: center;"> Donate</h4>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullScreen>
+
+      <ion-card *ngIf="pokemon">
+        <div style="border-bottom: 5px dashed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;width: 100%;">
+
+          <div class="image" style="width: 135px;
+          display: flex;justify-content: center;padding: 10px;">
+            <img [src]="pokemon.sprites.other.dream_world.front_default" alt="Name" width="100px">
+            
+          </div>
+         
+          <h4 *ngIf="pokemon" style="display: flex;justify-content: center;margin-bottom: 30px;">{{pokemon.name | uppercase}}</h4>
+          <p style="margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur .</p>
+        </div>
+        <ion-button color="success" style="margin-top: 10px;">NEW ATACK</ion-button>
+
+        <ul>
+          <h3>Tipo</h3>
+          <li *ngFor="let item of pokemon.types">
+            {{item.type.name}}
+          </li>
+        </ul>
+        <ul>
+          <h3>Poder Base</h3>
+          <li *ngFor="let item of pokemon.stats">
+            {{item.stat.name}} = {{item.base_stat}} 
+          </li>
+        </ul>
+        <ul>
+          <h3>Habilidad</h3>
+          <li *ngFor="let item of pokemon.abilities">
+            {{item.ability.name}} 
+          </li>
+        </ul>
+        <p>Peso : {{pokemon.weight}}</p>
+      </ion-card>
+
+</ion-content>

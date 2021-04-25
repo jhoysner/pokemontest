@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button slot="start">
+            <ion-icon name="reorder-three-outline"></ion-icon>
+        </ion-button>
+        <ion-title>Listado de pokemons</ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullScreen>
+    <ion-searchbar (ionChange)="searchName($event.target.value)" debounce="500"></ion-searchbar>
+
+    <ion-list lines="none">
+        <ion-card *ngFor="let item of pokemons" (click)="getDetailPokemon(item.name)">
+            <ion-item>
+                <ion-thumbnail slot="start">
+                    <img [src]="item.image" alt="Name">
+                </ion-thumbnail>
+
+                <div class="grid">
+                    <div class="info">
+                        <h2>{{item.name}}</h2>
+                        <p>Listen, I've had a pretty messed up day...</p>
+                    </div>
+                    <div class="details">
+                        <ion-icon name="alert-circle"></ion-icon>
+                        <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-card>
+
+
+
+
+
+
+
+
+    </ion-list>
+</ion-content>
